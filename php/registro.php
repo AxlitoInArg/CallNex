@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro</title>
-    <link rel="stylesheet" href="/css/registro.css">
+    <title>Registro - CallNex</title>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="http://localhost/callnex/css/registro.css">
 </head>
 <body>
     <div class="container">
-        <h1>Registro</h1>
+        <h1 class="title">Registro</h1>
         
         <?php
         // Verificar si se ha enviado el formulario
@@ -40,7 +41,13 @@
                 $sql = "INSERT INTO usuarios (nombre, email, contrasena) VALUES ('$nombre', '$email', '$contrasena')";
                 
                 if (mysqli_query($conn, $sql)) {
-                    echo "<p class='success'>Registro exitoso. <a href='inicio.php'>Ir al inicio</a></p>";
+                    echo "<p class='success-message' id='success-message'>Registro exitoso. Redirigiendo al inicio...</p>";
+                    echo "<script>
+                            document.getElementById('success-message').style.display = 'block';
+                            setTimeout(function(){
+                                window.location.href = 'inicio.php';
+                            }, 3000); // 3 segundos de espera
+                          </script>";
                 } else {
                     echo "Error al registrar usuario: " . mysqli_error($conn);
                 }
@@ -53,16 +60,18 @@
         <!-- Formulario de registro -->
         <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
             <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required>
+            <input type="text" id="nombre" name="nombre" class="input-field" required>
 
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+            <input type="email" id="email" name="email" class="input-field" required>
 
             <label for="contrasena">Contraseña:</label>
-            <input type="password" id="contrasena" name="contrasena" required>
+            <input type="password" id="contrasena" name="contrasena" class="input-field" required>
 
-            <button type="submit">Registrarse</button>
+            <button type="submit" class="register-button">Registrarse</button>
         </form>
+
+        <a href="http://localhost/callnex/html/login.html" class="login-link">¿Ya tienes cuenta? Inicia sesión</a>
     </div>
 </body>
 </html>
