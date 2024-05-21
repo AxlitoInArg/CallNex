@@ -1,49 +1,61 @@
-/* Estilos para la página de registro */
-.registro-container {
-    max-width: 400px;
-    margin: 50px auto;
+body {
+    font-family: 'Ubuntu', sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
     background-color: #fff;
     padding: 20px;
-    border-radius: 5px;
+    border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.registro-container h2 {
     text-align: center;
+    width: 300px;
 }
 
-.registro-container .input-group {
+.title {
+    font-size: 2em;
     margin-bottom: 20px;
+    color: #333;
 }
 
-.registro-container .input-group label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-.registro-container .input-group input {
+.input-field {
     width: 100%;
     padding: 10px;
+    margin: 10px 0;
     border: 1px solid #ccc;
-    border-radius: 3px;
+    border-radius: 20px;
+    font-size: 1em;
+    box-sizing: border-box;
 }
 
-.registro-container .btn {
-    display: block;
+.register-button {
     width: 100%;
-    background-color: #333;
-    color: #fff;
     padding: 10px;
+    margin: 10px 0;
+    background-color: #3F51B5;
+    color: white;
     border: none;
-    border-radius: 3px;
+    border-radius: 20px;
+    font-size: 1em;
     cursor: pointer;
-    transition: background-color 0.3s ease;
 }
 
-.registro-container .btn:hover {
-    background-color: #555;
+.register-button:hover {
+    background-color: #303F9F;
 }
 
-.registro-container p {
-    text-align: center;
+.error {
+    color: red;
+    margin-bottom: 10px;
+}
+
+.success-message {
+    display: none;
+    color: green;
+    margin-top: 20px;
 }
