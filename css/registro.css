@@ -1,0 +1,49 @@
+/* Estilos para la página de registro */
+.registro-container {
+    max-width: 400px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.registro-container h2 {
+    text-align: center;
+}
+
+.registro-container .input-group {
+    margin-bottom: 20px;
+}
+
+.registro-container .input-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.registro-container .input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.registro-container .btn {
+    display: block;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.registro-container .btn:hover {
+    background-color: #555;
+}
+
+.registro-container p {
+    text-align: center;
+}
