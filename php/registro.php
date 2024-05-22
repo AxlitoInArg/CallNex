@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro - CallNex</title>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="/callnex/imgs/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="/callnex/css/registro.css">
 </head>
 <body>

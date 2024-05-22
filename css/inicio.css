@@ -1,6 +1,6 @@
 /* Estilos generales */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Ubuntu', sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
@@ -20,6 +20,8 @@ header {
 
 header h1 {
     margin: 0;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 24px;
 }
 
 nav ul {
@@ -36,6 +38,8 @@ nav ul li {
 nav ul li a {
     color: #fff;
     text-decoration: none;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 18px;
 }
 
 .main {
@@ -52,12 +56,14 @@ nav ul li a {
 .function {
     background-color: #fff;
     padding: 20px;
-    border-radius: 5px;
+    border-radius: 50px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .function h3 {
     margin-top: 0;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 24px;
 }
 
 .function p {
@@ -73,11 +79,11 @@ nav ul li a {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 .btn:hover {
     background-color: rgb(24, 119, 207);
-    color: #fff
 }
 
 footer {
@@ -85,4 +91,18 @@ footer {
     color: #fff;
     text-align: center;
     padding: 20px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+.logo {
+    position: fixed; /* para mantener el logo en una posición fija */
+    top: 10px; /* ajusta la distancia desde la parte superior */
+    left: 10px; /* ajusta la distancia desde la izquierda */
+    z-index: 9999; /* asegura que el logo esté encima de otros elementos */
+}
+
+.logo img {
+    width: 50px; /* ajusta el tamaño del logo según sea necesario */
+    height: auto; /* asegura que la altura se ajuste proporcionalmente al ancho */
 }

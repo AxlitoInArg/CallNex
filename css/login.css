@@ -1,38 +1,43 @@
-/* Estilos generales */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+    font-family: 'Ubuntu', sans-serif;
     background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
 }
 
 .login-container {
-    max-width: 400px;
-    margin: 50px auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
+    background-color: white;
+    padding: 40px;
+    border-radius: 50px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-h2 {
     text-align: center;
 }
 
-.input-group {
+.login-container h2 {
     margin-bottom: 20px;
+    font-size: 40px;
+}
+
+.input-group {
+    margin-bottom: 10px;
 }
 
 .input-group label {
     display: block;
     margin-bottom: 5px;
+    font-weight: bold;
 }
 
 .input-group input {
-    width: 100%;
+    width: 400px;
     padding: 10px;
+    margin-top: 5px;
+    border-radius: 50px;
     border: 1px solid #ccc;
-    border-radius: 3px;
+    font-size: 16px;
 }
 
 .btn {
@@ -42,16 +47,14 @@ h2 {
     color: #fff;
     padding: 10px;
     border: none;
-    border-radius: 3px;
+    border-radius: 50px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-
-
 }
 
 .btn:hover {
     background-color: rgb(24, 119, 207);
-    color: #fff
+    color: #fff;
 }
 
 p {
