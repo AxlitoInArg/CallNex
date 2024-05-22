@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro - CallNex</title>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="http://localhost/callnex/css/registro.css">
+    <link rel="stylesheet" href="/callnex/css/registro.css">
 </head>
 <body>
     <div class="container">
-        <h1 class="title">Registro</h1>
+        <h1 class="title">Registro - Callnex</h1>
         
         <?php
         // Verificar si se ha enviado el formulario
@@ -71,7 +71,7 @@
             <button type="submit" class="register-button">Registrarse</button>
         </form>
 
-        <a href="http://localhost/callnex/html/login.html" class="login-link">¿Ya tienes cuenta? Inicia sesión</a>
+        <a href="/callnex/html/login.html" class="login-link">¿Ya tienes cuenta? Inicia sesión</a>
     </div>
 </body>
 </html>
