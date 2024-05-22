@@ -37,7 +37,7 @@ body {
     width: 100%;
     padding: 10px;
     margin: 10px 0;
-    background-color: #3F51B5;
+    background-color: #2f3036;
     color: white;
     border: none;
     border-radius: 20px;
@@ -46,7 +46,8 @@ body {
 }
 
 .register-button:hover {
-    background-color: #303F9F;
+    background-color: #2897e0;
+    color: #fff;
 }
 
 .error {
