@@ -20,19 +20,9 @@
                 <label for="password">Contraseña:</label>
                 <input type="password" id="password" name="password" required>
             </div>
-            <button type="submit" class="btn">Iniciar sesión</button><p>No tienes una cuenta? <a href="http://localhost/callnex/php/registro.php">Regístrate aquí</a></p>           
+            <button type="submit" class="btn">Iniciar sesión</button>
+            <p>No tienes una cuenta? <a href="http://localhost/callnex/php/registro.php">Regístrate aquí</a></p>           
         </form>
     </div>
-    <script>
-        document.getElementById('loginForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            // Aquí puedes agregar la lógica para enviar el formulario vía AJAX si es necesario
-            // Mostrar mensaje de éxito y redirigir después de unos segundos
-            document.getElementById('loginForm').style.display = 'none';
-            setTimeout(function() {
-                window.location.href = '/callnex/php/inicio.php'; // Cambiar a la página de inicio correspondiente
-            }, 3000); // Redirigir después de 3 segundos
-        });
-    </script>
 </body>
 </html>

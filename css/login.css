@@ -54,9 +54,22 @@ body {
 
 .btn:hover {
     background-color: rgb(24, 119, 207);
-    color: #fff;
+    color: #fff
 }
 
 p {
     text-align: center;
+}
+
+/* Nuevas clases para los mensajes */
+.success-message {
+    color: green;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+.error-message {
+    color: red;
+    font-size: 18px;
+    margin-top: 20px;
 }
