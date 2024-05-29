@@ -16,6 +16,12 @@ body {
     text-align: center;
 }
 
+.login-container .logo {
+    width: 200px; /* Ajusta el tamaño según sea necesario */
+    height: auto;
+    margin-bottom: 20px;
+}
+
 .login-container h2 {
     margin-bottom: 20px;
     font-size: 40px;
@@ -32,7 +38,8 @@ body {
 }
 
 .input-group input {
-    width: 400px;
+    width: 100%;
+    max-width: 250px;
     padding: 10px;
     margin-top: 5px;
     border-radius: 50px;
@@ -43,6 +50,7 @@ body {
 .btn {
     display: block;
     width: 100%;
+    max-width: 400px;
     background-color: rgb(51, 62, 73);
     color: #fff;
     padding: 10px;
@@ -54,7 +62,7 @@ body {
 
 .btn:hover {
     background-color: rgb(24, 119, 207);
-    color: #fff
+    color: #fff;
 }
 
 p {

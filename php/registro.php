@@ -10,7 +10,8 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="title">Registro - Callnex</h1>
+        <img src="/callnex/imgs/callnex_logo.png" alt="CallNex Logo" class="logo">
+        <h1 class="title">Registro</h1>
         
         <?php
         // Verificar si se ha enviado el formulario

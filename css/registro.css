@@ -17,6 +17,12 @@ body {
     width: 300px;
 }
 
+.logo {
+    width: 200px; /* Ajusta el tamaño según sea necesario */
+    height: auto;
+    margin-bottom: 20px;
+}
+
 .title {
     font-size: 2em;
     margin-bottom: 20px;
@@ -59,4 +65,15 @@ body {
     display: none;
     color: green;
     margin-top: 20px;
+}
+
+.login-link {
+    display: block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #2897e0;
+}
+
+.login-link:hover {
+    text-decoration: underline;
 }
