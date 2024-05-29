@@ -6,6 +6,8 @@
     <title>Inicio - CallNex</title>
     <link rel="icon" href="/callnex/imgs/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="/callnex/css/inicio.css">
+    <!-- Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header>
@@ -15,11 +17,10 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="#">Inicio</a></li>
-                    <li><a href="#">Llamadas Recientes</a></li>
-                    <li><a href="#">Contactos</a></li>
-                    <li><a href="#">Perfil</a></li>
-                    <li><a href="logout.php">Cerrar sesión</a></li>
+                    <li><a href="#"><i class="fas fa-home"></i><span class="nav-text">Inicio</span></a></li>
+                    <li><a href="#"><i class="fas fa-cogs"></i><span class="nav-text">Funciones</span></a></li>
+                    <li><a href="#"><i class="fas fa-envelope"></i><span class="nav-text">Contacto</span></a></li>
+                    <li><a href="logout.php"><i class="fas fa-sign-out-alt"></i><span class="nav-text">Cerrar sesión</span></a></li>
                 </ul>
             </nav>
         </div>
@@ -27,17 +28,17 @@
 
     <section class="main">
         <div class="container">
-            <h2>Bienvenido a CallNex pre-alpha 1.5</h2>
+            <h2>Bienvenido a CallNex pre-alpha 1.5a</h2>
             <div class="functions">
                 <div class="function">
                     <h3>Llamar a un Preceptor</h3>
                     <p>Realiza un llamado a un preceptor para solicitar asistencia en el aula.</p>
-                    <a href="#" class="btn">Llamar a Preceptor</a>
+                    <a href="#" class="btn"><i class="fas fa-phone"></i> <span class="btn-text">Llamar a Preceptor</span></a>
                 </div>
                 <div class="function">
                     <h3>Llamar a un Auxiliar</h3>
                     <p>Realiza un llamado a un auxiliar para solicitar asistencia en el aula.</p>
-                    <a href="#" class="btn">Llamar a Auxiliar</a>
+                    <a href="#" class="btn"><i class="fas fa-phone-volume"></i> <span class="btn-text">Llamar a Auxiliar</span></a>
                 </div>
             </div>
         </div>
