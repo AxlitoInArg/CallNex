@@ -15,11 +15,14 @@
             <div class="logo">
                 <img src="/callnex/imgs/icono_callnex.png" alt="Logo de CallNex">
             </div>
-            <nav>
+            <button class="navbar-toggle"><i class="fas fa-bars"></i></button>
+            <nav class="navbar-menu">
                 <ul>
-                    <li><a href="#"><i class="fas fa-home"></i><span class="nav-text">Inicio</span></a></li>
-                    <li><a href="#"><i class="fas fa-cogs"></i><span class="nav-text">Funciones</span></a></li>
-                    <li><a href="#"><i class="fas fa-envelope"></i><span class="nav-text">Contacto</span></a></li>
+                    <li><a href="#"><i class="fas fa-bell"></i><span class="nav-text">Notificaciones</span></a></li>
+                    <li><a href="#"><i class="fas fa-user"></i><span class="nav-text">Perfil</span></a></li>
+                    <li><a href="#"><i class="fas fa-phone"></i><span class="nav-text">Historial de llamados</span></a></li>
+                    <li><a href="#"><i class="fas fa-gear"></i><span class="nav-text">Configuración</span></a></li>
+                    <li><a href="#"><i class="fas fa-question"></i><span class="nav-text">Ayuda</span></a></li>
                     <li><a href="logout.php"><i class="fas fa-sign-out-alt"></i><span class="nav-text">Cerrar sesión</span></a></li>
                 </ul>
             </nav>
@@ -28,7 +31,7 @@
 
     <section class="main">
         <div class="container">
-            <h2>Bienvenido a CallNex pre-alpha 1.5a</h2>
+            <h2>Bienvenido a CallNex pre-alpha 1.5b</h2>
             <div class="functions">
                 <div class="function">
                     <h3>Llamar a un Preceptor</h3>
@@ -49,5 +52,11 @@
             <p>&copy; 2024 CallNex. Todos los derechos reservados.</p>
         </div>
     </footer>
+
+    <script>
+        document.querySelector('.navbar-toggle').addEventListener('click', function() {
+            document.querySelector('.navbar-menu ul').classList.toggle('active');
+        });
+    </script>
 </body>
 </html>

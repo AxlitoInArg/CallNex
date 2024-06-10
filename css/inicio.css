@@ -37,6 +37,15 @@ header .logo img {
     height: auto;
 }
 
+.navbar-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+}
+
 nav ul {
     list-style: none;
     padding: 0;
@@ -159,41 +168,50 @@ footer {
 
 /* Estilos responsivos */
 @media (max-width: 768px) {
-    header {
-        padding: 10px 0;
+    .navbar-toggle {
+        display: block;
     }
 
-    .logo {
-        position: relative;
-        margin-bottom: 20px;
+    .navbar-menu {
+        display: none;
     }
 
-    .logo img {
-        width: 100px;
-        height: auto;
-    }
-
-    nav {
-        text-align: center;
+    .navbar-menu.active {
+        display: block;
     }
 
     nav ul {
-        display: flex;
         flex-direction: column;
         align-items: center;
+        background-color: #333;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        display: none;
+    }
+
+    nav ul.active {
+        display: flex;
     }
 
     nav ul li {
         width: 100%;
-        margin-bottom: 10px;
+        margin: 0;
     }
 
     nav ul li a {
-        padding: 10px;
+        width: 100%;
+        text-align: center;
+        padding: 15px;
     }
 
     .main h2 {
         font-size: 24px;
+    }
+
+    .functions {
+        flex-direction: column;
     }
 
     .function {
