@@ -48,7 +48,7 @@
     ?>
 
     <div class="login-container">
-        <h2>Redirigiendo</h2>
+        <h2><img src="/callnex/imgs/icono_callnex.png" alt="Logo de CallNex"></h2>
         <?php if ($login_success): ?>
             <p class="success-message">Inicio de sesión exitoso. Redirigiendo...</p>
             <script>

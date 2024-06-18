@@ -73,7 +73,7 @@
             <button type="submit" class="register-button">Registrarse</button>
         </form>
 
-        <a href="/callnex/html/login.html" class="login-link">¿Ya tienes cuenta? Inicia sesión</a>
+        <a href="/callnex/index.html" class="login-link">¿Ya tienes cuenta? Inicia sesión</a>
     </div>
 </body>
 </html>
