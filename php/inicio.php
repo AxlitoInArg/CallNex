@@ -19,7 +19,6 @@
             <nav class="navbar-menu">
                 <ul>
                     <li><a href="#"><i class="fas fa-bell"></i><span class="nav-text">Notificaciones</span></a></li>
-                    <li><a href="#"><i class="fas fa-phone"></i><span class="nav-text">Historial de llamados</span></a></li>
                     <li><a href="config.php"><i class="fas fa-gear"></i><span class="nav-text">Configuración</span></a></li>
                 </ul>
             </nav>
@@ -28,7 +27,7 @@
 
     <section class="main">
         <div class="container">
-            <h2>Bienvenido a CallNex pre-alpha 1.6a</h2>
+            <h2>Bienvenido a CallNex alpha 1.7a</h2>
             <div class="functions">
                 <div class="function">
                     <h3>Llamar a un Preceptor</h3>

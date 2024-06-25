@@ -127,7 +127,7 @@ nav ul li a:hover {
     color: #fff;
     padding: 10px 20px;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 50px;
     cursor: pointer;
     transition: background-color 0.3s ease;
     font-family: 'Ubuntu', sans-serif;

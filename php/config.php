@@ -21,7 +21,6 @@
                 <ul>
                     <li><a href="inicio.php"><i class="fas fa-home"></i><span class="nav-text">Inicio</span></a></li>
                     <li><a href="#"><i class="fas fa-bell"></i><span class="nav-text">Notificaciones</span></a></li>
-                    <li><a href="#"><i class="fas fa-phone"></i><span class="nav-text">Historial de llamados</span></a></li>
                 </ul>
             </nav>
         </div>

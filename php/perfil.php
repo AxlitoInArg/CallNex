@@ -12,19 +12,15 @@
 </head>
 <body>
     <header>
-        <div class="container">
+        <div class="container menu">
             <div class="logo">
                 <img src="/callnex/imgs/icono_callnex.png" alt="Logo de CallNex">
             </div>
-            <nav>
-                <div class="menu-icon" id="menu-icon">
-                    <i class="fas fa-bars"></i>
-                </div>
-                <ul class="nav-links" id="nav-links">
-                    <li><a href="index.html"><i class="fas fa-home"></i><span class="nav-text">Inicio</span></a></li>
-                    <li><a href="configuracion.html"><i class="fas fa-gear"></i><span class="nav-text">Configuración</span></a></li>
-                    <li><a href="#"><i class="fas fa-question"></i><span class="nav-text">Ayuda</span></a></li>
-                    <li><a href="logout.php"><i class="fas fa-sign-out-alt"></i><span class="nav-text">Cerrar sesión</span></a></li>
+            <button class="navbar-toggle"><i class="fas fa-bars"></i></button>
+            <nav class="navbar-menu">
+                <ul>
+                    <li><a href="#"><i class="fas fa-bell"></i><span class="nav-text">Notificaciones</span></a></li>
+                    <li><a href="config.php"><i class="fas fa-gear"></i><span class="nav-text">Configuración</span></a></li>
                 </ul>
             </nav>
         </div>
@@ -62,11 +58,9 @@
     </footer>
 
     <script>
-        const menuIcon = document.getElementById('menu-icon');
-        const navLinks = document.getElementById('nav-links');
-
-        menuIcon.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
+        document.querySelector('.navbar-toggle').addEventListener('click', function() {
+            document.querySelector('.navbar-menu ul').classList.toggle('active');
+            document.querySelector('.navbar-menu').classList.toggle('active');
         });
     </script>
 </body>
