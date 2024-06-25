@@ -1,3 +1,40 @@
+<?php
+// Inicia sesión
+session_start();
+
+// Comprueba si el usuario ha iniciado sesión
+if (!isset($_SESSION['user_id'])) {
+    header('Location: /callnex/index.html');
+    exit();
+}
+
+// Conexión a la base de datos
+include '../modelo/conexion_bd.php';
+
+// Obtiene la información del usuario
+$user_id = $_SESSION['user_id'];
+$query = "SELECT * FROM usuarios WHERE id = $user_id";
+$result = mysqli_query($conexion, $query);
+$user = mysqli_fetch_assoc($result);
+
+// Procesa el formulario de actualización
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $nombre = mysqli_real_escape_string($conexion, $_POST['nombre']);
+    $apellido = mysqli_real_escape_string($conexion, $_POST['apellido']);
+    $email = mysqli_real_escape_string($conexion, $_POST['email']);
+
+    $update_query = "UPDATE usuarios SET nombre = '$nombre', apellido = '$apellido', email = '$email' WHERE id = $user_id";
+    echo $update_query;
+
+    if (mysqli_query($conexion, $update_query)) {
+        $_SESSION['success_message'] = "Perfil actualizado exitosamente.";
+    } else {
+        $_SESSION['error_message'] = "Error al actualizar el perfil.";
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +56,8 @@
             <button class="navbar-toggle"><i class="fas fa-bars"></i></button>
             <nav class="navbar-menu">
                 <ul>
-                    <li><a href="#"><i class="fas fa-bell"></i><span class="nav-text">Notificaciones</span></a></li>
+                    <li><a href="inicio.php"><i class="fas fa-home"></i><span class="nav-text">Inicio</span></a></li>
+                    <li><a href="noti.php"><i class="fas fa-bell"></i><span class="nav-text">Notificaciones</span></a></li>
                     <li><a href="config.php"><i class="fas fa-gear"></i><span class="nav-text">Configuración</span></a></li>
                 </ul>
             </nav>
@@ -32,11 +70,15 @@
             <form class="profile-form">
                 <div class="form-group">
                     <label for="nombre">Nombre</label>
-                    <input type="text" id="nombre" name="nombre" value="Nombre del usuario" required>
+                    <input type="text" id="nombre" name="nombre" placeholder="Nombre del usuario" value="<?php echo $_SESSION['nombre']?>">
+                </div>
+                <div class="form-group">
+                    <label for="nombre">Apellido</label>
+                    <input type="text" id="apellido" name="apellido" placeholder="Apellido del usuario" value="<?php echo $_SESSION['appelido']?>">
                 </div>
                 <div class="form-group">
                     <label for="email">Correo Electrónico</label>
-                    <input type="email" id="email" name="email" value="usuario@ejemplo.com" required>
+                    <input type="email" id="email" name="email" placeholder="tu correo" value="<?php echo $_SESSION['email']?>">
                 </div>
                 <div class="form-group">
                     <label for="password">Contraseña</label>
