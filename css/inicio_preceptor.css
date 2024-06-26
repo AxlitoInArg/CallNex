@@ -29,20 +29,12 @@ header {
     padding: 20px 0;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 header .logo img {
     width: 50px;
     height: auto;
-}
-
-.navbar-toggle {
-    display: none;
-    background: none;
-    border: none;
-    color: #fff;
-    font-size: 24px;
-    cursor: pointer;
 }
 
 nav ul {
@@ -127,7 +119,7 @@ nav ul li a:hover {
     color: #fff;
     padding: 10px 20px;
     text-decoration: none;
-    border-radius: 50px;
+    border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
     font-family: 'Ubuntu', sans-serif;
@@ -144,12 +136,6 @@ nav ul li a:hover {
     background-color: rgb(24, 119, 207);
 }
 
-.logo {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-}
-
 footer {
     background-color: #333;
     color: #fff;
@@ -159,130 +145,55 @@ footer {
     margin-top: auto;
 }
 
+.logo {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 9999;
+}
+
 .logo img {
     width: 50px;
     height: auto;
 }
 
-.availability {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 25px; /* Ajusta el margen inferior según necesites */
-    margin-left: 15px; /* Espacio entre el texto "Estado" y el botón */
-    animation: fadeIn 2s ease-in-out;
-}
-
-.state-label {
-    font-size: 15px;
-    color: #ff0000;
-    margin-right: 15px;
-    font-weight: bold; /* Texto en negrita */
-    margin-right: 25px; /* Espacio entre el texto "Estado" y el botón */
-}
-
-.btn.availability {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #dc3545; /* Color de fondo cuando no está disponible */
-    color: #fff;
-    border: none;
-    border-radius: 20px;
-    padding: 8px 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-family: 'Ubuntu', sans-serif;
-    font-size: 16px;
-    width: 200px; /* Ancho del botón */
-    text-align: center; /* Centra el contenido del botón */
-}
-
-.btn.availability.available {
-    background-color: #28a745; /* Color de fondo cuando está disponible */
-    font-family: 'Ubuntu', sans-serif;
-}
-
-.btn.availability i {
-    margin-right: 8px;
-}
-
-.btn.availability:hover {
-    background-color: #c82333; /* Color de fondo al pasar el mouse */
-}
-
-.availability-label {
-    font-size: 36px;
-    color: #fff;
-    margin-bottom: 30px;
-    font-family: 'Ubuntu', sans-serif;
-    animation: fadeIn 2s ease-in-out;
-}
-
-
 /* Estilos responsivos */
-@media (max-width: 916px) {
-    .navbar-toggle {
-        display: flex;
+@media (max-width: 768px) {
+    header {
+        padding: 10px 0;
     }
 
-    .navbar-menu {
-        display: none;
-    }
-
-    .navbar-menu.active {
-        display: block;
-    }
-
-    .availability {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    .logo {
+        position: relative;
         margin-bottom: 20px;
     }
-    
-    .availability span {
-        font-size: 18px;
-        color: #fff;
-        margin-right: 10px;
+
+    .logo img {
+        width: 100px;
+        height: auto;
     }
-    
-    .btn.available {
-        background-color: #28a745;
+
+    nav {
+        text-align: center;
     }
 
     nav ul {
+        display: flex;
         flex-direction: column;
         align-items: center;
-        background-color: #333;
-        width: 100%;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        display: none;
-    }
-
-    nav ul.active {
-        display: flex;
     }
 
     nav ul li {
         width: 100%;
-        margin: 0;
+        margin-bottom: 10px;
     }
 
     nav ul li a {
-        width: 100%;
-        text-align: center;
-        padding: 15px;
+        padding: 10px;
     }
 
     .main h2 {
         font-size: 24px;
-    }
-
-    .functions {
-        flex-direction: column;
     }
 
     .function {

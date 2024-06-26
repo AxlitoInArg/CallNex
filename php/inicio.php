@@ -40,6 +40,11 @@
                     <p>Realiza un llamado a un auxiliar para solicitar asistencia en el aula.</p>
                     <a href="#" class="btn"><i class="fas fa-phone-volume"></i> <span class="btn-text">Llamar a Auxiliar</span></a>
                 </div>
+                <div class="function">
+                    <h3>Lllamar a EMATP</h3>
+                    <p>Realizar un llamado a EMATP.</p>
+                    <a href="#" class="btn"><i class="fas fa-phone-volume"></i> <span class="btn-text">Llamar EMATP</span></a>
+                </div>
             </div>
         </div>
     </section>
