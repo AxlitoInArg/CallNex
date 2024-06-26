@@ -29,6 +29,7 @@
             }
 
             $nombre = $_POST["nombre"];
+            $apellido = $_POST["apellido"];
             $email = $_POST["email"];
             $contrasena = $_POST["contrasena"];
 
@@ -40,7 +41,7 @@
                 echo "<p class='error'>El correo electrónico ya está registrado.</p>";
             } else {
                 // Insertar nuevo usuario en la base de datos
-                $sql = "INSERT INTO usuarios (nombre, email, contrasena) VALUES ('$nombre', '$email', '$contrasena')";
+                $sql = "INSERT INTO usuarios (nombre, apellido, email, contrasena) VALUES ('$nombre', '$apellido', '$email', '$contrasena')";
                 
                 if (mysqli_query($conn, $sql)) {
                     echo "<p class='success-message' id='success-message'>Registro exitoso. Redirigiendo al inicio...</p>";
@@ -63,6 +64,9 @@
         <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
             <label for="nombre">Nombre:</label>
             <input type="text" id="nombre" name="nombre" class="input-field" required>
+
+            <label for="nombre">Apellido:</label>
+            <input type="text" id="apellido" name="apellido" class="input-field" required>
 
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" class="input-field" required>
