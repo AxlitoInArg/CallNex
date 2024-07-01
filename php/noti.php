@@ -31,17 +31,19 @@ $result = mysqli_query($conexion, $query);
 </head>
 <body>
     <header>
-        <div class="container">
+    <div class="container menu">
             <div class="logo">
                 <img src="/callnex/imgs/icono_callnex.png" alt="Logo de CallNex">
             </div>
-            <nav>
+            <button class="navbar-toggle"><i class="fas fa-bars"></i></button>
+            <nav class="navbar-menu">
                 <ul>
                     <li><a href="inicio.php"><i class="fas fa-home"></i><span class="nav-text">Inicio</span></a></li>
                     <li><a href="noti.php"><i class="fas fa-bell"></i><span class="nav-text">Notificaciones</span></a></li>
                     <li><a href="config.php"><i class="fas fa-gear"></i><span class="nav-text">Configuración</span></a></li>
                 </ul>
             </nav>
+        </div>
         </div>
     </header>
 
@@ -65,7 +67,12 @@ $result = mysqli_query($conexion, $query);
             </div>
         </div>
     </section>
-
+    <script>
+        document.querySelector('.navbar-toggle').addEventListener('click', function() {
+            document.querySelector('.navbar-menu ul').classList.toggle('active');
+            document.querySelector('.navbar-menu').classList.toggle('active');
+        });
+    </script>
     <footer>
         <div class="container">
             <p>&copy; 2024 CallNex. Todos los derechos reservados.</p>

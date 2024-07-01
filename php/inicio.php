@@ -42,7 +42,7 @@
                 </div>
                 <div class="function">
                     <h3>Lllamar a EMATP</h3>
-                    <p>Realizar un llamado a EMATP.</p>
+                    <p>Realizar un llamado a EMATP para solicitar asistencia.</p>
                     <a href="#" class="btn"><i class="fas fa-phone-volume"></i> <span class="btn-text">Llamar EMATP</span></a>
                 </div>
             </div>

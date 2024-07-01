@@ -289,9 +289,31 @@ footer {
 .form-group input {
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 50px;
     font-size: 16px;
     font-family: 'Ubuntu', sans-serif;
     width: 100%;
     box-sizing: border-box;
 }
+
+.success-message {
+    background-color: #4caf50; /* Color de fondo verde */
+    color: #fff; /* Texto blanco */
+    padding: 10px 10px; /* Espaciado interno */
+    border-radius: 50px; /* Bordes redondeados */
+    margin-bottom: 20px; /* Margen inferior */
+    text-align: center; /* Centrado de texto */
+    animation: fadeInUp 0.5s ease; /* Animación de entrada */
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+

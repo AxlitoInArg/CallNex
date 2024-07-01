@@ -69,7 +69,7 @@
             <script>
                 setTimeout(function() {
                     window.location.href = '/callnex/index.html'; // Cambiar a la página de inicio correspondiente
-                }, 3000); // Redirigir después de 3 segundos
+                }, 1000); // Redirigir después de 1 segundo
             </script>
         <?php endif; ?>
     </div>

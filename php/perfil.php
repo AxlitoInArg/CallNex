@@ -25,10 +25,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $contrasena = mysqli_real_escape_string($conexion, $_POST['contrasena']);
 
     $update_query = "UPDATE usuarios SET nombre = '$nombre', apellido = '$apellido', email = '$email', contrasena = '$contrasena' WHERE id = $user_id";
-    echo $update_query;
 
     if (mysqli_query($conexion, $update_query)) {
         $_SESSION['success_message'] = "Perfil actualizado exitosamente.";
+        // Refresca la información del usuario después de la actualización
+        $query = "SELECT * FROM usuarios WHERE id = $user_id";
+        $result = mysqli_query($conexion, $query);
+        $user = mysqli_fetch_assoc($result);
+
+        // Actualiza las variables de sesión con los nuevos datos del usuario
+        $_SESSION['nombre'] = $user['nombre'];
+        $_SESSION['apellido'] = $user['apellido'];
+        $_SESSION['email'] = $user['email'];
+        $_SESSION['contrasena'] = $user['contrasena'];
     } else {
         $_SESSION['error_message'] = "Error al actualizar el perfil.";
     }
@@ -50,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 <body>
     <header>
-        <div class="container menu">
+    <div class="container menu">
             <div class="logo">
                 <img src="/callnex/imgs/icono_callnex.png" alt="Logo de CallNex">
             </div>
@@ -68,26 +77,32 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <section class="main">
         <div class="container">
             <h2>Perfil</h2>
-            <form class="profile-form">
+            <?php
+            if (isset($_SESSION['success_message'])) {
+                echo '<p class="success-message">' . $_SESSION['success_message'] . '</p>';
+                unset($_SESSION['success_message']);
+            }
+            if (isset($_SESSION['error_message'])) {
+                echo '<p class="error-message">' . $_SESSION['error_message'] . '</p>';
+                unset($_SESSION['error_message']);
+            }
+            ?>
+            <form action="perfil.php" method="POST" class="profile-form">
                 <div class="form-group">
                     <label for="nombre">Nombre</label>
-                    <input type="text" id="nombre" name="nombre" placeholder="Nombre del usuario" value="<?php echo $_SESSION['nombre']?>">
+                    <input type="text" id="nombre" name="nombre" placeholder="Nombre del usuario" value="<?php echo htmlspecialchars($user['nombre']); ?>" required>
                 </div>
                 <div class="form-group">
-                    <label for="nombre">Apellido</label>
-                    <input type="text" id="apellido" name="apellido" placeholder="Apellido del usuario" value="<?php echo $_SESSION['apellido']?>">
+                    <label for="apellido">Apellido</label>
+                    <input type="text" id="apellido" name="apellido" placeholder="Apellido del usuario" value="<?php echo htmlspecialchars($user['apellido']); ?>" required>
                 </div>
                 <div class="form-group">
                     <label for="email">Correo Electrónico</label>
-                    <input type="email" id="email" name="email" placeholder="tu correo" value="<?php echo $_SESSION['email']?>">
+                    <input type="email" id="email" name="email" placeholder="tu correo" value="<?php echo htmlspecialchars($user['email']); ?>" required>
                 </div>
                 <div class="form-group">
-                    <label for="password">Contraseña</label>
-                    <input type="password" id="password" name="password" placeholder="Cambiar contraseña" value="<?php echo $_SESSION['contrasena']?>">
-                </div>
-                <div class="form-group">
-                    <label for="confirm-password">Confirmar Contraseña</label>
-                    <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirmar nueva contraseña" value="<?php echo $_SESSION['contrasena']?>">
+                    <label for="contrasena">Contraseña</label>
+                    <input type="password" id="contrasena" name="contrasena" placeholder="Cambiar contraseña" value="<?php echo htmlspecialchars($user['contrasena']); ?>" required>
                 </div>
                 <button type="submit" class="btn"><i class="fas fa-save"></i> Guardar Cambios</button>
             </form>
