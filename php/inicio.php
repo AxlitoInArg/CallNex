@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,24 +28,24 @@
 
     <section class="main">
         <div class="container">
-            <h2>Bienvenido a CallNex alpha 1.7a</h2>
+            <h2>Bienvenido a CallNex</h2>
             <div class="functions">
                 <div class="function">
-                    <h3>Llamar a un Preceptor</h3>
-                    <p>Realiza un llamado a un preceptor para solicitar asistencia en el aula.</p>
-                    <a href="#" class="btn"><i class="fas fa-phone"></i> <span class="btn-text">Llamar a Preceptor</span></a>
+                    <h3>Realizar Llamado</h3>
+                    <p>Seleccione el motivo de su llamado:</p>
+                    <select id="motivo">
+                        <option value="consulta">Consulta</option>
+                        <option value="emergencia">Emergencia</option>
+                        <option value="asistencia">Asistencia</option>
+                    </select>
+                    <button class="btn" onclick="realizarLlamado()"><i class="fas fa-phone"></i> <span class="btn-text">Llamar</span></button>
                 </div>
                 <div class="function">
-                    <h3>Llamar a un Auxiliar</h3>
-                    <p>Realiza un llamado a un auxiliar para solicitar asistencia en el aula.</p>
-                    <a href="#" class="btn"><i class="fas fa-phone-volume"></i> <span class="btn-text">Llamar a Auxiliar</span></a>
-                </div>
-                <div class="function">
-                    <h3>Lllamar a EMATP</h3>
-                    <p>Realizar un llamado a EMATP para solicitar asistencia.</p>
-                    <a href="#" class="btn"><i class="fas fa-phone-volume"></i> <span class="btn-text">Llamar EMATP</span></a>
+                    <h3>Cancelar Llamado</h3>
+                    <button class="btn" onclick="cancelarLlamado()"><i class="fas fa-times"></i> <span class="btn-text">Cancelar</span></button>
                 </div>
             </div>
+            <div id="notificacion"></div>
         </div>
     </section>
 
@@ -55,11 +55,6 @@
         </div>
     </footer>
 
-    <script>
-        document.querySelector('.navbar-toggle').addEventListener('click', function() {
-            document.querySelector('.navbar-menu ul').classList.toggle('active');
-            document.querySelector('.navbar-menu').classList.toggle('active');
-        });
-    </script>
+    <script src="/callnex/js/inicio.js"></script>
 </body>
 </html>

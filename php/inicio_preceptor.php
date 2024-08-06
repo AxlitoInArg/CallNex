@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,7 +17,7 @@
             </div>
             <button class="navbar-toggle"><i class="fas fa-bars"></i></button>
             <nav class="navbar-menu">
-            <ul>
+                <ul>
                     <li><a href="inicio.php"><i class="fas fa-home"></i><span class="nav-text">Inicio</span></a></li>
                     <li><a href="noti.php"><i class="fas fa-bell"></i><span class="nav-text">Notificaciones</span></a></li>
                     <li><a href="config.php"><i class="fas fa-gear"></i><span class="nav-text">Configuración</span></a></li>
@@ -51,6 +51,11 @@
                 </div>
             </div>
         </div>
+        <div id="llamadosView">
+            <h1>Llamados Recibidos</h1>
+            <ul id="llamadosList"></ul>
+            <button onclick="borrarHistorialLlamados()">Borrar Historial de Llamados</button>
+        </div>
     </section>
 
     <footer>
@@ -59,30 +64,6 @@
         </div>
     </footer>
 
-    <script>
-        // Simular el estado de disponibilidad
-        let isAvailable = false;
-
-        document.getElementById('availability-btn').addEventListener('click', function() {
-            isAvailable = !isAvailable;
-            const availabilityText = document.getElementById('availability-text');
-            const availabilityIcon = this.querySelector('i');
-
-            if (isAvailable) {
-                availabilityText.textContent = 'Disponible';
-                availabilityIcon.classList.remove('fa-circle');
-                availabilityIcon.classList.add('fa-check-circle');
-                this.classList.add('available');
-            } else {
-                availabilityText.textContent = 'No Disponible';
-                availabilityIcon.classList.remove('fa-check-circle');
-                availabilityIcon.classList.add('fa-circle');
-                this.classList.remove('available');
-            }
-
-            // Aquí puedes agregar una llamada AJAX para actualizar el estado en la base de datos
-            // fetch('/update_availability.php', { method: 'POST', body: JSON.stringify({ available: isAvailable }) });
-        });
-    </script>
+    <script src="/callnex/js/preceptor.js"></script>
 </body>
 </html>
