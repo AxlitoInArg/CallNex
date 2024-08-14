@@ -1,40 +1,3 @@
-document.addEventListener('DOMContentLoaded', () => {
-    actualizarLlamados();
-
-    document.getElementById('availability-btn').addEventListener('click', function() {
-        isAvailable = !isAvailable;
-        const availabilityText = document.getElementById('availability-text');
-        const availabilityIcon = this.querySelector('i');
-
-        if (isAvailable) {
-            availabilityText.textContent = 'Disponible';
-            availabilityIcon.classList.remove('fa-circle');
-            availabilityIcon.classList.add('fa-check-circle');
-            this.classList.add('available');
-        } else {
-            availabilityText.textContent = 'No Disponible';
-            availabilityIcon.classList.remove('fa-check-circle');
-            availabilityIcon.classList.add('fa-circle');
-            this.classList.remove('available');
-        }
-
-        // Aquí puedes agregar una llamada AJAX para actualizar el estado en la base de datos
-        // fetch('/update_availability.php', { method: 'POST', body: JSON.stringify({ available: isAvailable }) });
-    });
-
-    setInterval(() => {
-        const llamadoAlumno = JSON.parse(localStorage.getItem('llamadoAlumno'));
-        if (llamadoAlumno && !llamados.find(ll => ll.id === llamadoAlumno.id)) {
-            llamados.push(llamadoAlumno);
-            actualizarLlamados();
-            guardarLlamados();
-            localStorage.removeItem('llamadoAlumno');
-        }
-    }, 1000);
-
-    setInterval(verificarCancelacion, 1000);
-});
-
 let llamados = JSON.parse(localStorage.getItem('llamados')) || [];
 
 function aceptarLlamado(id) {
@@ -93,7 +56,7 @@ function guardarLlamados() {
 }
 
 function enviarNotificacionAlumno(llamado) {
-    localStorage.setItem('llamadoAlumno', JSON.stringify(llamado));
+    localStorage.setItem('llamado', JSON.stringify(llamado));
 }
 
 function verificarCancelacion() {
@@ -114,3 +77,17 @@ function borrarHistorialLlamados() {
     localStorage.removeItem('llamados');
     actualizarLlamados();
 }
+
+// Simulación de recepción de llamado
+setInterval(() => {
+    const llamado = JSON.parse(localStorage.getItem('llamado'));
+    if (llamado && !llamados.find(ll => ll.id === llamado.id)) {
+        llamados.push(llamado);
+        actualizarLlamados();
+        guardarLlamados();
+    }
+}, 1000);
+
+setInterval(verificarCancelacion, 1000);
+
+document.addEventListener('DOMContentLoaded', actualizarLlamados);

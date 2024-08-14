@@ -38,8 +38,8 @@ $result = mysqli_query($conexion, $query);
             <button class="navbar-toggle"><i class="fas fa-bars"></i></button>
             <nav class="navbar-menu">
                 <ul>
-                    <li><a href="inicio.php"><i class="fas fa-home"></i><span class="nav-text">Inicio</span></a></li>
-                    <li><a href="noti.php"><i class="fas fa-bell"></i><span class="nav-text">Notificaciones</span></a></li>
+                    <li><a href="inicio_preceptor.php"><i class="fas fa-home"></i><span class="nav-text">Inicio</span></a></li>
+                    <li><a href="noti_preceptor.php"><i class="fas fa-phone"></i><span class="nav-text">Historial de llamados</span></a></li>
                     <li><a href="config.php"><i class="fas fa-gear"></i><span class="nav-text">Configuración</span></a></li>
                 </ul>
             </nav>
@@ -50,11 +50,14 @@ $result = mysqli_query($conexion, $query);
     <section class="main">
     <div class="function">
                     <h3>Notificaciones</h3>
-                    <button class="btn" onclick="verNotificaciones()"><i class="fas fa-bell"></i> <span class="btn-text">Ver Notificaciones</span></button>
-                    <button class="btn" onclick="borrarNotificaciones()"><i class="fas fa-trash"></i> <span class="btn-text">Borrar Historial</span></button>
+                    <div id="preceptorView">
+                         <h1>Llamados Recibidos</h1>
+                    <ul id="llamadosList"></ul>
+                    <div id="notificacion"></div>
+                    <button onclick="borrarHistorialLlamados()">Borrar Historial de Llamados</button>
+        </div>
                 </div>
             </div>
-            <div id="notificacion"></div>
         </div>
         </div>
     </section>

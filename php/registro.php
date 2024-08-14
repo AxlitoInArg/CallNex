@@ -32,6 +32,7 @@
             $apellido = $_POST["apellido"];
             $email = $_POST["email"];
             $contrasena = $_POST["contrasena"];
+            $tipo_usuario_id = 2; // "alumno"
 
             // Verificar si el email ya está registrado
             $sql = "SELECT id FROM usuarios WHERE email = '$email'";
@@ -41,7 +42,7 @@
                 echo "<p class='error'>El correo electrónico ya está registrado.</p>";
             } else {
                 // Insertar nuevo usuario en la base de datos
-                $sql = "INSERT INTO usuarios (nombre, apellido, email, contrasena) VALUES ('$nombre', '$apellido', '$email', '$contrasena')";
+                $sql = "INSERT INTO usuarios (nombre, apellido, email, contrasena, tipo_usuario_id) VALUES ('$nombre', '$apellido', '$email', '$contrasena', '$tipo_usuario_id')";
                 
                 if (mysqli_query($conn, $sql)) {
                     echo "<p class='success-message' id='success-message'>Registro exitoso. Redirigiendo al inicio...</p>";

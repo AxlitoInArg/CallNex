@@ -34,19 +34,27 @@
         $email = $_POST["email"];
         $contrasena = $_POST["password"];
 
-        // Consultar la base de datos para verificar el usuario
-        $sql = "SELECT * FROM usuarios WHERE email = '$email' AND contrasena = '$contrasena'";
+        // Consultar la base de datos para verificar el usuario y obtener el tipo de usuario
+        $sql = "SELECT id, nombre, apellido, tipo_usuario_id FROM usuarios WHERE email = '$email' AND contrasena = '$contrasena'";
         $result = mysqli_query($conn, $sql);
 
         if (mysqli_num_rows($result) == 1) {
-            $row = mysqli_fetch_row($result);
+            $row = mysqli_fetch_assoc($result);
 
             $_SESSION['email'] = $email;
-            $_SESSION['user_id'] = $row[0];
-            $_SESSION['nombre'] = $row[1];
-            $_SESSION['apellido'] = $row[2];
+            $_SESSION['user_id'] = $row['id'];
+            $_SESSION['nombre'] = $row['nombre'];
+            $_SESSION['apellido'] = $row['apellido'];
+            $_SESSION['tipo_usuario_id'] = $row['tipo_usuario_id'];
 
             $login_success = true;
+
+            // Redirigir según el tipo de usuario
+            if ($row['tipo_usuario_id'] == 1) {
+                $redirect_url = '/callnex/php/inicio_preceptor.php'; // Preceptor
+            } else {
+                $redirect_url = '/callnex/php/inicio.php'; // Alumno
+            }
         } else {
             $error_message = "Correo electrónico o contraseña incorrectos.";
         }
@@ -61,14 +69,14 @@
             <p class="success-message">Inicio de sesión exitoso. Redirigiendo...</p>
             <script>
                 setTimeout(function() {
-                    window.location.href = '/callnex/php/inicio.php'; // Cambiar a la página de inicio correspondiente
+                    window.location.href = '<?php echo $redirect_url; ?>'; // Redirigir a la página correspondiente
                 }, 3000); // Redirigir después de 3 segundos
             </script>
         <?php else : ?>
             <p class="error-message">ERROR, VOLVIENDO AL LOGUEO</p>
             <script>
                 setTimeout(function() {
-                    window.location.href = '/callnex/index.html'; // Cambiar a la página de inicio correspondiente
+                    window.location.href = '/callnex/index.html'; // Redirigir después de 1 segundo
                 }, 1000); // Redirigir después de 1 segundo
             </script>
         <?php endif; ?>

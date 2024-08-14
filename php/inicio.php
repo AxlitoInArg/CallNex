@@ -38,14 +38,13 @@
                         <option value="emergencia">Emergencia</option>
                         <option value="asistencia">Asistencia</option>
                     </select>
-                    <button class="btn" onclick="realizarLlamado()"><i class="fas fa-phone"></i> <span class="btn-text">Llamar</span></button>
+                    <button class="btn" onclick="hacerLlamado()"><i class="fas fa-phone"></i> <span class="btn-text">Llamar</span></button>
                 </div>
                 <div class="function">
                     <h3>Cancelar Llamado</h3>
                     <button class="btn" onclick="cancelarLlamado()"><i class="fas fa-times"></i> <span class="btn-text">Cancelar</span></button>
                 </div>
             </div>
-            <div id="notificacion"></div>
         </div>
     </section>
 
