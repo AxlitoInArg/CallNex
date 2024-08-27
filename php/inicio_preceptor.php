@@ -22,7 +22,11 @@
                 <ul>
                     <li><a href="inicio_preceptor.php"><i class="fas fa-home"></i><span class="nav-text">Inicio</span></a></li>
                     <li><a href="noti_preceptor.php"><i class="fas fa-phone"></i><span class="nav-text">Historial de llamados</span></a></li>
+<<<<<<< HEAD
+                    <li><a href="config_preceptor.php"><i class="fas fa-gear"></i><span class="nav-text">Configuración</span></a></li>
+=======
                     <li><a href="config.php"><i class="fas fa-gear"></i><span class="nav-text">Configuración</span></a></li>
+>>>>>>> 768621c2718a214ebbb933d3d4407b609e82cac1
                 </ul>
             </nav>
         </div>
