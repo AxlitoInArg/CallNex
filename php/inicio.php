@@ -44,6 +44,11 @@
                     <h3>Cancelar Llamado</h3>
                     <button class="btn" onclick="cancelarLlamado()"><i class="fas fa-times"></i> <span class="btn-text">Cancelar</span></button>
                 </div>
+                <div class="function">
+                    <h3>Enviar Mensaje a Aula</h3>
+                    <p>Envía mensajes a las aulas para informar o asistir en tiempo real.</p>
+                    <a href="#" class="btn"><i class="fas fa-envelope"></i> <span class="btn-text">Enviar Mensaje</span></a>
+                </div>
             </div>
         </div>
     </section>
