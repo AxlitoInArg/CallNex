@@ -60,5 +60,11 @@
     </footer>
 
     <script src="/callnex/js/inicio.js"></script>
+    <script>
+        document.querySelector('.navbar-toggle').addEventListener('click', function() {
+            document.querySelector('.navbar-menu ul').classList.toggle('active');
+            document.querySelector('.navbar-menu').classList.toggle('active');
+        });
+    </script>
 </body>
 </html>

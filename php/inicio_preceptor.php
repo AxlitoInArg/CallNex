@@ -22,11 +22,7 @@
                 <ul>
                     <li><a href="inicio_preceptor.php"><i class="fas fa-home"></i><span class="nav-text">Inicio</span></a></li>
                     <li><a href="noti_preceptor.php"><i class="fas fa-phone"></i><span class="nav-text">Historial de llamados</span></a></li>
-<<<<<<< HEAD
                     <li><a href="config_preceptor.php"><i class="fas fa-gear"></i><span class="nav-text">Configuración</span></a></li>
-=======
-                    <li><a href="config.php"><i class="fas fa-gear"></i><span class="nav-text">Configuración</span></a></li>
->>>>>>> 768621c2718a214ebbb933d3d4407b609e82cac1
                 </ul>
             </nav>
         </div>
@@ -34,7 +30,14 @@
 
     <section class="main">
         <div class="container">
-            <h2>Bienvenido, Preceptor/Auxiliar</h2>
+            <?php
+            include "../modelo/conexion_bd.php";
+            $nombre = "SELECT nombre FROM usuarios";
+            $query = $conexion->query($nombre);
+            $nombre = $query->fetch_array();
+
+            ?>
+            <h2>Bienvenido, <?php echo $nombre['nombre']; ?></h2>
             <div class="availability">
                 <span class="availability-label">Estado:</span>
                 <button id="availability-btn" class="btn availability"><i class="fas fa-circle"></i> <span id="availability-text">No Disponible</span></button>
@@ -68,6 +71,7 @@
             <p>&copy; 2024 CallNex. Todos los derechos reservados.</p>
         </div>
     </footer>
+    <script src="/callnex/js/inicio.js"></script>
     <script>
         document.querySelector('.navbar-toggle').addEventListener('click', function() {
             document.querySelector('.navbar-menu ul').classList.toggle('active');

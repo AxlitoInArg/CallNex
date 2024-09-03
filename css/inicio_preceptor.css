@@ -37,6 +37,15 @@ header .logo img {
     height: auto;
 }
 
+.navbar-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+}
+
 nav ul {
     list-style: none;
     padding: 0;
@@ -44,6 +53,11 @@ nav ul {
     display: flex;
     gap: 15px;
 }
+
+nav ul li {
+    display: inline;
+}
+
 
 nav ul li {
     display: inline;
@@ -157,51 +171,6 @@ footer {
     height: auto;
 }
 
-/* Estilos responsivos */
-@media (max-width: 768px) {
-    header {
-        padding: 10px 0;
-    }
-
-    .logo {
-        position: relative;
-        margin-bottom: 20px;
-    }
-
-    .logo img {
-        width: 100px;
-        height: auto;
-    }
-
-    nav {
-        text-align: center;
-    }
-
-    nav ul {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    nav ul li {
-        width: 100%;
-        margin-bottom: 10px;
-    }
-
-    nav ul li a {
-        padding: 10px;
-    }
-
-    .main h2 {
-        font-size: 24px;
-    }
-
-    .function {
-        width: 90%;
-        margin: 0 auto 20px;
-    }
-}
-
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -266,4 +235,75 @@ footer {
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-20px); }
     to { opacity: 1; transform: translateY(0); }
+}
+
+/* Estilos responsivos */
+@media (max-width: 916px) {
+    .navbar-toggle {
+        display: flex;
+    }
+
+    .navbar-menu {
+        display: none;
+    }
+
+    .navbar-menu.active {
+        display: block;
+    }
+
+    .availability {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+    
+    .availability span {
+        font-size: 18px;
+        color: #fff;
+        margin-right: 10px;
+    }
+    
+    .btn.available {
+        background-color: #28a745;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        background-color: #333;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        display: none;
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+
+    nav ul li {
+        width: 100%;
+        margin: 0;
+    }
+
+    nav ul li a {
+        width: 100%;
+        text-align: center;
+        padding: 15px;
+    }
+
+    .main h2 {
+        font-size: 24px;
+    }
+
+    .functions {
+        flex-direction: column;
+    }
+
+    .function {
+        width: 90%;
+        margin: 0 auto 20px;
+    }
 }

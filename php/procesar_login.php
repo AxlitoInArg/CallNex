@@ -87,25 +87,6 @@
     <?php endif; ?>
 </div>
 
-    <div class="login-container">
-        <h2><img src="/callnex/imgs/icono_callnex.png" alt="Logo de CallNex"></h2>
-        <?php if ($login_success) : ?>
-            <p class="success-message">Inicio de sesión exitoso. Redirigiendo...</p>
-            <script>
-                setTimeout(function() {
-                    window.location.href = '<?php echo $redirect_url; ?>'; // Redirigir a la página correspondiente
-                }, 3000); // Redirigir después de 3 segundos
-            </script>
-        <?php else : ?>
-            <p class="error-message">ERROR, VOLVIENDO AL LOGUEO</p>
-            <script>
-                setTimeout(function() {
-                    window.location.href = '/callnex/index.html'; // Redirigir después de 1 segundo
-                }, 1000); // Redirigir después de 1 segundo
-            </script>
-        <?php endif; ?>
-    </div>
-
 </body>
 
 </html>
