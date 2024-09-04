@@ -10,6 +10,32 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+<?php
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $titulo = $_POST['titulo'];
+    $mensaje = $_POST['mensaje'];
+    $fecha = $_POST['fecha'];
+
+    $sql = "INSERT INTO notificaciones (titulo, mensaje, fecha) VALUES (?, ?, ?)";
+    $stmt = $conexion->prepare($sql);
+    $stmt->bind_param("ssdii", $titulo, $mensaje, $fecha);
+
+    if ($stmt->execute()) {
+        echo "Notificacion enviada";
+    } else {
+        echo "Error al enviar notificacion: " . $stmt->error;
+    }
+        
+    $stmt->close();
+    $stmt->close();
+}
+
+
+
+?>
+
+
     <header>
         <div class="container menu">
             <div class="logo">
@@ -38,16 +64,7 @@
                         <option value="emergencia">Emergencia</option>
                         <option value="asistencia">Asistencia</option>
                     </select>
-                    <button class="btn" onclick="hacerLlamado()"><i class="fas fa-phone"></i> <span class="btn-text">Llamar</span></button>
-                </div>
-                <div class="function">
-                    <h3>Cancelar Llamado</h3>
-                    <button class="btn" onclick="cancelarLlamado()"><i class="fas fa-times"></i> <span class="btn-text">Cancelar</span></button>
-                </div>
-                <div class="function">
-                    <h3>Enviar Mensaje a Aula</h3>
-                    <p>Envía mensajes a las aulas para informar o asistir en tiempo real.</p>
-                    <a href="#" class="btn"><i class="fas fa-envelope"></i> <span class="btn-text">Enviar Mensaje</span></a>
+                    <button class="btn"><i class="fas fa-phone"></i> <span class="btn-text">Llamar</span></button>
                 </div>
             </div>
         </div>
