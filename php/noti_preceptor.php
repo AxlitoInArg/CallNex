@@ -25,7 +25,7 @@ $result = mysqli_query($conexion, $query);
     <title>Notificaciones - CallNex</title>
     <link rel="icon" href="/callnex/imgs/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="/callnex/css/noti.css">
-    <link rel="stylesheet" href="/callnex/css/inicio.css">
+    <link rel="stylesheet" href="/callnex/css/inicio_preceptor.css">
     <!-- Iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -40,7 +40,7 @@ $result = mysqli_query($conexion, $query);
                 <ul>
                     <li><a href="inicio_preceptor.php"><i class="fas fa-home"></i><span class="nav-text">Inicio</span></a></li>
                     <li><a href="noti_preceptor.php"><i class="fas fa-phone"></i><span class="nav-text">Historial de llamados</span></a></li>
-                    <li><a href="config.php"><i class="fas fa-gear"></i><span class="nav-text">Configuración</span></a></li>
+                    <li><a href="config_preceptor.php"><i class="fas fa-gear"></i><span class="nav-text">Configuración</span></a></li>
                 </ul>
             </nav>
         </div>
@@ -50,14 +50,11 @@ $result = mysqli_query($conexion, $query);
     <section class="main">
     <div class="function">
                     <h3>Notificaciones</h3>
-                    <div id="preceptorView">
-                         <h1>Llamados Recibidos</h1>
-                    <ul id="llamadosList"></ul>
-                    <div id="notificacion"></div>
-                    <button onclick="borrarHistorialLlamados()">Borrar Historial de Llamados</button>
-        </div>
+                    <button class="btn" onclick="verNotificaciones()"><i class="fas fa-bell"></i> <span class="btn-text">Ver Notificaciones</span></button>
+                    <button class="btn" onclick="borrarNotificaciones()"><i class="fas fa-trash"></i> <span class="btn-text">Borrar Historial</span></button>
                 </div>
             </div>
+            <div id="notificacion"></div>
         </div>
         </div>
     </section>
@@ -67,7 +64,7 @@ $result = mysqli_query($conexion, $query);
             document.querySelector('.navbar-menu').classList.toggle('active');
         });
     </script>
-    <script src="/callnex/js/inicio.js"></script>
+    <script src="/callnex/js/preceptor.js"></script>
     <footer>
         <div class="container">
             <p>&copy; 2024 CallNex. Todos los derechos reservados.</p>

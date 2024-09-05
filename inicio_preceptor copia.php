@@ -51,11 +51,16 @@
                 <div id="callModal" class="function">
                     <div class="modal-content">
                         <h3>Detalles del Llamado</h3>
-                        <ul id="llamadosList"></ul>
+                        <p id="callDetails"></p>
                         <button onclick="aceptarLlamado()">Aceptar</button>
                         <button onclick="rechazarLlamado()">Rechazar</button>
                         <button onclick="cerrarModal()">Cerrar</button>
                     </div>
+                </div>
+                <div class="function">
+                    <h3>Ver Historial de Llamados</h3>
+                    <p>Revisa el historial de llamados atendidos y sus detalles.</p>
+                    <a href="#" class="btn"><i class="fas fa-history"></i> <span class="btn-text">Ver Historial</span></a>
                 </div>
             </div>
         </div>
@@ -66,7 +71,7 @@
             <p>&copy; 2024 CallNex. Todos los derechos reservados.</p>
         </div>
     </footer>
-    <script src="/callnex/js/preceptor.js"></script>
+    <script src="/callnex/js/inicio.js"></script>
     <script>
         document.querySelector('.navbar-toggle').addEventListener('click', function() {
             document.querySelector('.navbar-menu ul').classList.toggle('active');

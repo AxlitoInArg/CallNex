@@ -50,23 +50,7 @@ $result = mysqli_query($conexion, $query);
     <section class="main">
     <div class="function">
                     <h3>Notificaciones</h3>
-                    <?php
-                        $query = "SELECT notificaciones.*, notificaciones.titulo, notificaciones.mensaje, notificaciones.fecha FROM notificaciones";
-                        $result = $conexion->query($query);
-
-                        if ($result->num_rows > 0) {
-                            while ($row = $result->fetch_assoc()) {
-                                echo "<div>";
-                                echo "<h3>" . $row['titulo'] . "</h3>";
-                                echo "<h3>" . $row['mensaje'] . "</h3>";
-                                echo "<h3>" . $row['fecha'] . "</h3>";
-                                echo "</div>"
-                            }
-                        } else {
-                            echo "No hay notificaciones";
-                        }
-
-                    ?>
+                    <button class="btn" onclick="verNotificaciones()"><i class="fas fa-bell"></i> <span class="btn-text">Ver Notificaciones</span></button>
                     <button class="btn" onclick="borrarNotificaciones()"><i class="fas fa-trash"></i> <span class="btn-text">Borrar Historial</span></button>
                 </div>
             </div>

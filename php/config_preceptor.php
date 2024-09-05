@@ -6,7 +6,7 @@
     <title>Configuración - CallNex</title>
     <link rel="icon" href="/callnex/imgs/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="/callnex/css/config.css">
-    <link rel="stylesheet" href="/callnex/css/inicio.css">
+    <link rel="stylesheet" href="/callnex/css/inicio_preceptor.css">
     <!-- Iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
