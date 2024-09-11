@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="/callnex/css/inicio.css">
     <!-- Iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Biblioteca Paho MQTT -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js"></script>
 </head>
 <body>
     <header>
@@ -59,12 +61,52 @@
         </div>
     </footer>
 
-    <script src="/callnex/js/inicio.js"></script>
+    <div id="notificacion"></div>
+
     <script>
-        document.querySelector('.navbar-toggle').addEventListener('click', function() {
-            document.querySelector('.navbar-menu ul').classList.toggle('active');
-            document.querySelector('.navbar-menu').classList.toggle('active');
+        // Configuración del cliente MQTT
+        const mqttHost = '192.168.0.182';  // IP del broker (Raspberry Pi)
+        const mqttPort = 8080;  // Cambia a 8080 si tu broker MQTT está usando WebSocket en ese puerto
+        const topicTest = 'test/topic';  // Tema para enviar el mensaje "hola"
+
+        // Crear cliente MQTT con WebSocket
+        let client = new Paho.MQTT.Client(mqttHost, mqttPort, `clientId-${Date.now()}`);
+
+        // Conectar al broker MQTT
+        function conectarMQTT() {
+            client.connect({
+                onSuccess: () => {
+                    console.log("Conexión exitosa al broker MQTT");
+                },
+                onFailure: (err) => {
+                    console.error("Error al conectar al broker MQTT: ", err);
+                },
+                useSSL: false  // Cambiar a true si el broker usa SSL
+            });
+        }
+
+        // Llamar a la función de conectar cuando la página cargue
+        document.addEventListener('DOMContentLoaded', () => {
+            conectarMQTT();
         });
+
+        // Función para realizar el llamado y enviar el mensaje
+        function hacerLlamado() {
+            if (client.isConnected()) {
+                console.log('Cliente MQTT está conectado.');
+
+                // Enviar el mensaje "hola" al topic test/topic
+                const messageTest = new Paho.MQTT.Message("BALDACULOGORDO");
+                messageTest.destinationName = topicTest;
+                client.send(messageTest);
+
+                console.log('Mensaje "hola" enviado al topic:', topicTest);
+            } else {
+                console.error('El cliente MQTT no está conectado.');
+            }
+        }
     </script>
+
+
 </body>
 </html>

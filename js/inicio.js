@@ -1,60 +1,53 @@
-let llamado = null;
-let notificaciones = [];
+// Configuración del cliente MQTT
+const mqttHost = '192.168.0.182';  // IP del broker (Raspberry Pi)
+const mqttPort = 8080;  // Puerto configurado para WebSocket en la Raspberry Pi
+const topicTest = 'test/topic';  // Tema para enviar el mensaje "hola"
 
+// Crear cliente MQTT con WebSocket
+let client = new Paho.MQTT.Client(mqttHost, mqttPort, `clientId-${Date.now()}`);
+
+// Función que se ejecuta al perder la conexión
+client.onConnectionLost = (responseObject) => {
+    if (responseObject.errorCode !== 0) {
+        console.error("Conexión perdida: " + responseObject.errorMessage);
+    }
+};
+
+// Función que se ejecuta al recibir un mensaje
+client.onMessageArrived = (message) => {
+    console.log("Mensaje recibido: " + message.payloadString);
+};
+
+// Conectar al broker MQTT
+function conectarMQTT() {
+    client.connect({
+        onSuccess: () => {
+            console.log("Conexión exitosa al broker MQTT");
+        },
+        onFailure: (err) => {
+            console.error("Error al conectar al broker MQTT: ", err);
+        },
+        useSSL: false  // Cambiar a true si tu broker usa SSL
+    });
+}
+
+// Llamar a la función de conectar cuando la página cargue
+document.addEventListener('DOMContentLoaded', () => {
+    conectarMQTT();
+});
+
+// Función para realizar el llamado y enviar el mensaje
 function hacerLlamado() {
-    llamado = {
-        id: Date.now(),
-        estado: 'pendiente',
-        mensaje: ''
-    };
-    localStorage.setItem('llamado', JSON.stringify(llamado));
-    agregarNotificacion('Llamado enviado a preceptor');
-}
+    if (client.isConnected()) {
+        console.log('Cliente MQTT está conectado.');
 
-function cancelarLlamado() {
-    llamado = {
-        ...llamado,
-        estado: 'cancelado',
-        mensaje: 'Pedido cancelado'
-    };
-    localStorage.setItem('llamado', JSON.stringify(llamado));
-    localStorage.setItem('cancelado', JSON.stringify(llamado));
-    document.getElementById('notificacion').innerText = 'Llamado cancelado';
-    setTimeout(() => {
-        localStorage.removeItem('cancelado');
-        localStorage.removeItem('llamado');
-    }, 1000);
-}
+        // Enviar el mensaje "hola" al topic test/topic
+        const messageTest = new Paho.MQTT.Message("hola");
+        messageTest.destinationName = topicTest;
+        client.send(messageTest);
 
-function verificarEstadoLlamado() {
-    const llamadoGuardado = localStorage.getItem('llamado');
-    if (llamadoGuardado) {
-        llamado = JSON.parse(llamadoGuardado);
-        if (llamado.estado !== 'pendiente') {
-            agregarNotificacion(`Llamado ${llamado.estado}: ${llamado.mensaje}`);
-            localStorage.removeItem('llamado');
-        }
+        console.log('Mensaje "hola" enviado al topic:', topicTest);
+    } else {
+        console.error('El cliente MQTT no está conectado.');
     }
 }
-
-function agregarNotificacion(mensaje) {
-    notificaciones.push(mensaje);
-    localStorage.setItem('notificaciones', JSON.stringify(notificaciones));
-}
-
-function verNotificaciones() {
-    const notificacionesGuardadas = JSON.parse(localStorage.getItem('notificaciones')) || [];
-    const notificacionDiv = document.getElementById('notificacion');
-    notificacionDiv.innerHTML = notificacionesGuardadas.join('<br>');
-}
-
-function borrarNotificaciones() {
-    notificaciones = [];
-    localStorage.removeItem('notificaciones');
-    document.getElementById('notificacion').innerText = 'Historial de notificaciones borrado';
-}
-
-setInterval(verificarEstadoLlamado, 1000);
-document.addEventListener('DOMContentLoaded', () => {
-    notificaciones = JSON.parse(localStorage.getItem('notificaciones')) || [];
-});
