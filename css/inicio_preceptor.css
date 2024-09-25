@@ -50,22 +50,27 @@ nav ul {
     padding: 0;
     margin: 0;
     display: flex;
-    gap: 20px;
+    gap: 15px;
+}
+
+nav ul li {
+    display: inline;
 }
 
 nav ul li a {
     color: #fff;
     text-decoration: none;
+    font-family: 'Ubuntu', sans-serif;
     font-size: 18px;
     padding: 10px 15px;
     transition: background-color 0.3s ease;
     display: flex;
     align-items: center;
-    border-radius: 5px;
 }
 
 nav ul li a:hover {
     background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
 }
 
 .nav-text {
@@ -74,7 +79,7 @@ nav ul li a:hover {
 
 .main {
     flex: 1;
-    padding: 50px 20px;
+    padding: 50px 0px;
     text-align: center;
 }
 
@@ -146,7 +151,7 @@ footer {
     background-color: #333;
     color: #fff;
     text-align: center;
-    padding: 20px;
+    padding: 20px 0;
     width: 100%;
     margin-top: auto;
 }
@@ -266,5 +271,17 @@ footer {
     .function {
         width: 90%;
         margin: 0 auto 20px;
+    }
+
+        .navbar-toggle {
+        display: block;
+    }
+
+    .navbar-menu {
+        display: none;
+    }
+
+    .navbar-menu.active {
+        display: block;
     }
 }

@@ -85,6 +85,18 @@ body {
     flex-wrap: wrap;
 }
 
+.main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.notificacion {
+    margin-top: 0;
+    font-size: 564px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
 .function {
     background-color: #fff;
     padding: 20px;

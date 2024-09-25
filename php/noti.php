@@ -48,15 +48,15 @@ $result = mysqli_query($conexion, $query);
     </header>
 
     <section class="main">
+    <h2>Notificaciones</h2>
     <div class="function">
-                    <h3>Notificaciones</h3>
                     <button class="btn" onclick="verNotificaciones()"><i class="fas fa-bell"></i> <span class="btn-text">Ver Notificaciones</span></button>
+                        <div id="notificacion" class="btn-text"></div>
                     <button class="btn" onclick="borrarNotificaciones()"><i class="fas fa-trash"></i> <span class="btn-text">Borrar Historial</span></button>
                 </div>
             </div>
-            <div id="notificacion"></div>
         </div>
-        </div>
+    </div>
     </section>
     <script>
         document.querySelector('.navbar-toggle').addEventListener('click', function() {

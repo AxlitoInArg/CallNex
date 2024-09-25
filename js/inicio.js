@@ -27,7 +27,7 @@ function cancelarLlamado() {
 }
 
 function verificarEstadoLlamado() {
-    cons t llamadoGuardado = localStorage.getItem('llamado');
+    const llamadoGuardado = localStorage.getItem('llamado');
     if (llamadoGuardado) {
         llamado = JSON.parse(llamadoGuardado);
         if (llamado.estado !== 'pendiente') {
