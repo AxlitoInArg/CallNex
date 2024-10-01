@@ -28,30 +28,64 @@
 
     <section class="main">
         <div class="container">
-            <h2>Bienvenido a CallNex BETA 1.0</h2>
+            <h2>Bienvenido a CallNex</h2>
             <div class="functions">
                 <div class="function">
-                    <h3>Realizar Llamado a preceptor</h3>
-                    <p>Seleccione el motivo de su llamado:</p>
-                    <select id="motivo">
-                        <option value="consulta">Consulta</option>
-                        <option value="emergencia">Emergencia</option>
-                        <option value="asistencia">Asistencia</option>
+                    <h3>Realizar Llamado</h3>
+                    <p>Seleccione el curso, división y grupo para realizar el llamado:</p>
+                    
+                    <!-- PHP para llenar el select de cursos y divisiones -->
+                    <?php
+                    // Conectar a la base de datos
+                    $conexion = new mysqli("localhost", "root", "", "callnex");
+
+                    // Verificar conexión
+                    if ($conexion->connect_error) {
+                        die("Error de conexión: " . $conexion->connect_error);
+                    }
+
+                    // Consulta para obtener cursos y divisiones
+                    $sql_cursos = "SELECT id, curso, division FROM cursos";
+                    $resultado_cursos = $conexion->query($sql_cursos);
+
+                    // Consulta para obtener grupos
+                    $sql_grupo = "SELECT id, grupo FROM grupo";
+                    $resultado_grupo = $conexion->query($sql_grupo);
+                    ?>
+
+                    <!-- Desplegable de Curso y División -->
+                    <label for="curso_division">Curso y División:</label>
+                    <select id="curso_division" name="curso_division">
+                        <?php
+                        if ($resultado_cursos->num_rows > 0) {
+                            while ($fila = $resultado_cursos->fetch_assoc()) {
+                                echo "<option value='" . $fila['id'] . "'>" . $fila['curso'] . " - " . $fila['division'] . "</option>";
+                            }
+                        } else {
+                            echo "<option>No hay cursos disponibles</option>";
+                        }
+                        ?>
                     </select>
+
+                    <!-- Desplegable de Grupo -->
+                    <label for="grupo">Grupo:</label>
+                    <select id="grupo" name="grupo">
+                        <?php
+                        if ($resultado_grupo->num_rows > 0) {
+                            while ($fila = $resultado_grupo->fetch_assoc()) {
+                                echo "<option value='" . $fila['id'] . "'>" . $fila['grupo'] . "</option>";
+                            }
+                        } else {
+                            echo "<option>No hay grupos disponibles</option>";
+                        }
+                        ?>
+                    </select>
+
                     <button class="btn" onclick="hacerLlamado()"><i class="fas fa-phone"></i> <span class="btn-text">Llamar</span></button>
                 </div>
+
                 <div class="function">
-                    <h3>Realizar Llamado a auxiliar</h3>
-                    <p>Seleccione el motivo de su llamado:</p>
-                    <select id="motivo">
-                        <option value="consulta">Consulta</option>
-                        <option value="emergencia">Emergencia</option>
-                        <option value="asistencia">Asistencia</option>
-                    </select>
-                    <button class="btn" onclick="hacerLlamado()"><i class="fas fa-phone"></i> <span class="btn-text">Llamar</span></button>
-                </div>
-                <div class="function">
-                    <h3>Cancelar Llamado</h3>
+                    <h3>Llegada</h3>
                     <button class="btn" onclick="cancelarLlamado()"><i class="fas fa-times"></i> <span class="btn-text">Cancelar</span></button>
                 </div>
             </div>

@@ -11,6 +11,6 @@ $_SESSION = array();
 session_destroy();
 
 // Redireccionamos al usuario a la página de inicio (index.html en este caso)
-header("Location: ../index.html");
+header("Location: ../index.php");
 exit;
 ?>

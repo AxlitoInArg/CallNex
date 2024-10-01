@@ -3,7 +3,7 @@ let llamados = JSON.parse(localStorage.getItem('llamados')) || [];
 function aceptarLlamado(id) {
     const llamado = llamados.find(ll => ll.id === id);
     if (llamado) {
-        llamado.estado = 'aceptado';
+        llamado.estado = 'en camino'; // Cambiar el estado a 'en camino'
         llamado.mensaje = 'En seguida voy';
         actualizarLlamados();
         guardarLlamados();
@@ -22,15 +22,37 @@ function rechazarLlamado(id) {
     }
 }
 
+function llegadaPreceptor(id) {
+    const llamado = llamados.find(ll => ll.id === id);
+    if (llamado) {
+        llamado.estado = 'llegado'; // Estado de llegada
+        llamado.mensaje = 'El preceptor ha llegado al salón.';
+        actualizarLlamados();
+        guardarLlamados();
+
+        // Enviar notificación al alumno de que el preceptor ha llegado
+        enviarNotificacionAlumno(llamado);
+
+        // Eliminar el llamado después de la llegada
+        const index = llamados.findIndex(ll => ll.id === id);
+        if (index > -1) {
+            llamados.splice(index, 1);
+        }
+        actualizarLlamados();
+        guardarLlamados();
+    }
+}
+
 function actualizarLlamados() {
     const list = document.getElementById('llamadosList');
     list.innerHTML = '';
     llamados.forEach(llamado => {
         const item = document.createElement('li');
         item.innerHTML = `
-            Llamado ID: ${llamado.id} - Estado: ${llamado.estado} <br>
+            <strong>${llamado.mensaje}</strong> - Estado: ${llamado.estado} <br>
             <button onclick="aceptarLlamado(${llamado.id})">Aceptar</button>
             <button onclick="rechazarLlamado(${llamado.id})">Rechazar</button>
+            <button onclick="llegadaPreceptor(${llamado.id})">Llegada</button>
             <select onchange="cambiarMensaje(${llamado.id}, this.value)">
                 <option value="">Seleccionar mensaje</option>
                 <option value="En seguida voy">En seguida voy</option>
