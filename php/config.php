@@ -34,9 +34,9 @@
                 <div class="option">
                     <a href="perfil.php"><i class="fas fa-user"></i> <span class="option-text">Perfil</span></a>
                 </div>
-                <div class="option">
+                <!-- <div class="option">
                     <a href="ayuda.html"><i class="fas fa-question"></i> <span class="option-text">Ayuda</span></a>
-                </div>
+                </div> -->
                 <div class="option">
                     <a href="logout.php"><i class="fas fa-sign-out-alt"></i> <span class="option-text">Cerrar sesión</span></a>
                 </div>

@@ -7,6 +7,10 @@ function aceptarLlamado(id) {
         llamado.mensaje = 'En seguida voy';
         actualizarLlamados();
         guardarLlamados();
+
+        // Agregar notificación de aceptación al localStorage
+        agregarNotificacion(`Llamado aceptado: ${llamado.mensaje}`);
+
         enviarNotificacionAlumno(llamado);
     }
 }
@@ -18,9 +22,14 @@ function rechazarLlamado(id) {
         llamado.mensaje = 'No puedo';
         actualizarLlamados();
         guardarLlamados();
+
+        // Agregar notificación de rechazo al localStorage
+        agregarNotificacion(`Llamado rechazado: ${llamado.mensaje}`);
+
         enviarNotificacionAlumno(llamado);
     }
 }
+
 
 function llegadaPreceptor(id) {
     const llamado = llamados.find(ll => ll.id === id);
@@ -113,3 +122,8 @@ setInterval(() => {
 setInterval(verificarCancelacion, 1000);
 
 document.addEventListener('DOMContentLoaded', actualizarLlamados);
+function agregarNotificacion(mensaje) {
+    const notificacionesGuardadas = JSON.parse(localStorage.getItem('notificaciones')) || [];
+    notificacionesGuardadas.push(mensaje);
+    localStorage.setItem('notificaciones', JSON.stringify(notificacionesGuardadas));
+}

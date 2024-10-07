@@ -3,7 +3,7 @@
 session_start();
 
 // Comprueba si el usuario ha iniciado sesión
-if (!isset($_SESSION['user_id'])) {
+if (!isset($_SESSION['usuario_id'])) {
     header('Location: /callnex/index.html');
     exit();
 }
@@ -12,8 +12,8 @@ if (!isset($_SESSION['user_id'])) {
 include '../modelo/conexion_bd.php';
 
 // Obtiene la información del usuario
-$user_id = $_SESSION['user_id'];
-$query = "SELECT * FROM usuarios WHERE id = $user_id";
+$usuario_id = $_SESSION['usuario_id'];
+$query = "SELECT * FROM usuarios WHERE id = $usuario_id";
 $result = mysqli_query($conexion, $query);
 $user = mysqli_fetch_assoc($result);
 
@@ -24,12 +24,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = mysqli_real_escape_string($conexion, $_POST['email']);
     $contrasena = mysqli_real_escape_string($conexion, $_POST['contrasena']);
 
-    $update_query = "UPDATE usuarios SET nombre = '$nombre', apellido = '$apellido', email = '$email', contrasena = '$contrasena' WHERE id = $user_id";
+    $update_query = "UPDATE usuarios SET nombre = '$nombre', apellido = '$apellido', email = '$email', contrasena = '$contrasena' WHERE id = $usuario_id";
 
     if (mysqli_query($conexion, $update_query)) {
         $_SESSION['success_message'] = "Perfil actualizado exitosamente.";
         // Refresca la información del usuario después de la actualización
-        $query = "SELECT * FROM usuarios WHERE id = $user_id";
+        $query = "SELECT * FROM usuarios WHERE id = $usuario_id";
         $result = mysqli_query($conexion, $query);
         $user = mysqli_fetch_assoc($result);
 

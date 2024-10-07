@@ -86,7 +86,7 @@
 
                 <div class="function">
                     <h3>Llegada</h3>
-                    <button class="btn" onclick="cancelarLlamado()"><i class="fas fa-times"></i> <span class="btn-text">Cancelar</span></button>
+                    <button class="btn" onclick="cancelarLlamado()"><i class="fas fa-times"></i> <span class="btn-text">Llegada</span></button>
                 </div>
             </div>
         </div>
@@ -97,8 +97,7 @@
             <p>&copy; 2024 CallNex. Todos los derechos reservados.</p>
         </div>
     </footer>
-
-    <script src="/callnex/js/inicio.js"></script>
+    <script src="../js/inicio.js"></script>
     <script>
         document.querySelector('.navbar-toggle').addEventListener('click', function() {
             document.querySelector('.navbar-menu ul').classList.toggle('active');

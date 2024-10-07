@@ -1,17 +1,16 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['user_id'])) {
-    header('Location: login.php');
+if (!isset($_SESSION['usuario_id'])) {
+    header('Location: ../index.php');
     exit();
 }
 
 include '../modelo/conexion_bd.php';
 
-$user_id = $_SESSION['user_id'];
-$query = "SELECT * FROM notificaciones WHERE usuario_id = $user_id ORDER BY fecha DESC";
+$usuario_id = $_SESSION['usuario_id'];
+$query = "SELECT * FROM notificaciones WHERE usuario_id = $usuario_id ORDER BY fecha DESC";
 $result = mysqli_query($conexion, $query);
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,29 +42,31 @@ $result = mysqli_query($conexion, $query);
 
     <section class="main">
         <h2>Notificaciones</h2>
-        <div class="notifications">
-            <?php while ($row = mysqli_fetch_assoc($result)): ?>
-                <div class="notification">
-                    <p><?php echo htmlspecialchars($row['mensaje']); ?></p>
-                    <small><?php echo htmlspecialchars($row['fecha']); ?></small>
-                </div>
-            <?php endwhile; ?>
-        </div>
-        <div class="function">
-            <button class="btn" onclick="borrarNotificaciones()"><i class="fas fa-trash"></i> <span class="btn-text">Borrar Historial</span></button>
+        <!-- Botón para ver/ocultar notificaciones -->
+        <button id="btn-ver-notificaciones" class="btn-notificaciones">
+            <i class="fas fa-bell"></i> Ver Notificaciones
+        </button>
+
+        <!-- Botón para borrar notificaciones -->
+        <button id="btn-borrar-notificaciones" class="btn-borrar">
+            <i class="fas fa-trash"></i> Borrar Todas las Notificaciones
+        </button>
+
+        <!-- Contenedor donde se mostrarán las notificaciones -->
+        <div id="contenedor-notificaciones" class="notifications" style="display: none;">
+            <?php if (mysqli_num_rows($result) > 0): ?>
+                <?php while ($row = mysqli_fetch_assoc($result)): ?>
+                    <div class="notification">
+                        <?php echo $row['mensaje']; ?>
+                    </div>
+                <?php endwhile; ?>
+            <?php else: ?>
+                <p>No hay notificaciones.</p>
+                <?php error_log("No se encontraron notificaciones para el usuario_id: " . $usuario_id); ?>
+            <?php endif; ?>
         </div>
     </section>
 
-    <script>
-        document.querySelector('.navbar-toggle').addEventListener('click', function() {
-            document.querySelector('.navbar-menu ul').classList.toggle('active');
-            document.querySelector('.navbar-menu').classList.toggle('active');
-        });
-    </script>
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 CallNex. Todos los derechos reservados.</p>
-        </div>
-    </footer>
+    <script src="../js/inicio.js"></script>
 </body>
 </html>

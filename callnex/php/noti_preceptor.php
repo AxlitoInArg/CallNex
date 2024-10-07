@@ -3,7 +3,7 @@
 session_start();
 
 // Comprueba si el usuario ha iniciado sesión
-if (!isset($_SESSION['user_id'])) {
+if (!isset($_SESSION['usuario_id'])) {
     header('Location: login.php');
     exit();
 }
@@ -12,8 +12,8 @@ if (!isset($_SESSION['user_id'])) {
 include '../modelo/conexion_bd.php';
 
 // Obtiene las notificaciones del usuario
-$user_id = $_SESSION['user_id'];
-$query = "SELECT * FROM notificaciones WHERE usuario_id = $user_id ORDER BY fecha DESC";
+$usuario_id = $_SESSION['usuario_id'];
+$query = "SELECT * FROM notificaciones WHERE usuario_id = $usuario_id ORDER BY fecha DESC";
 $result = mysqli_query($conexion, $query);
 
 ?>

@@ -3,7 +3,7 @@
 session_start();
 
 // Comprueba si el usuario ha iniciado sesión
-if (!isset($_SESSION['user_id'])) {
+if (!isset($_SESSION['usuario_id'])) {
     header('Location: ../index.php');
     exit();
 }
@@ -12,8 +12,8 @@ if (!isset($_SESSION['user_id'])) {
 include '../modelo/conexion_bd.php';
 
 // Obtiene las notificaciones del usuario
-$user_id = $_SESSION['user_id'];
-$query = "SELECT * FROM notificaciones WHERE usuario_id = $user_id ORDER BY fecha DESC";
+$usuario_id = $_SESSION['usuario_id'];
+$query = "SELECT * FROM notificaciones WHERE usuario_id = $usuario_id ORDER BY fecha DESC";
 $result = mysqli_query($conexion, $query);
 
 ?>
@@ -39,7 +39,7 @@ $result = mysqli_query($conexion, $query);
             <nav class="navbar-menu">
                 <ul>
                     <li><a href="inicio_preceptor.php"><i class="fas fa-home"></i><span class="nav-text">Inicio</span></a></li>
-                    <li><a href="noti_preceptor.php"><i class="fas fa-phone"></i><span class="nav-text">Historial de llamados</span></a></li>
+                    <!-- <li><a href="noti_preceptor.php"><i class="fas fa-phone"></i><span class="nav-text">Historial de llamados</span></a></li> -->
                     <li><a href="config_preceptor.php"><i class="fas fa-gear"></i><span class="nav-text">Configuración</span></a></li>
                 </ul>
             </nav>
